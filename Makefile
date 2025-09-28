@@ -1,2 +1,2 @@
 scrape:
-	deno scraper.ts
+	deno -A scraper.ts

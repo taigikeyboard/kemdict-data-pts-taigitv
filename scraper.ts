@@ -91,8 +91,10 @@ async function scrapePage(page: number) {
 
 const total = await getPageCount();
 for (let page = 1; page <= total; page++) {
+  console.log(`Scraping page ${page}/${total}...`);
   await scrapePage(page);
 }
+console.log(`Done`);
 
 // Date in the form of 20201201T235959Z.
 const now = new Date().toISOString().replace(/:|-|\.[0-9]*/g, "");
