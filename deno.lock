@@ -1,0 +1,17 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@b-fuze/deno-dom@*": "0.1.56",
+    "npm:@kisaragi-hiu/cached-fetch@*": "0.1.2"
+  },
+  "jsr": {
+    "@b-fuze/deno-dom@0.1.56": {
+      "integrity": "8030e2dc1d8750f1682b53462ab893d9c3470f2287feecbe22f44a88c54ab148"
+    }
+  },
+  "npm": {
+    "@kisaragi-hiu/cached-fetch@0.1.2": {
+      "integrity": "sha512-N1egRSv4xmgNhzhh0xxL5Zab8q+XPL6GUh+93nvZiRt0ZAJtRmRswm0Bbp3Tu95AHbVvPB9GGKsHLJmzGaHGCA=="
+    }
+  }
+}
