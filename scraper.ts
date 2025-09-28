@@ -30,14 +30,36 @@ function urlToTagId(url: string) {
 
 const words: Word[] = [];
 
-async function parsePage(page: number) {
-  const text = await cached(`taigi-words-${page}`, () =>
+async function fetchPage(page: number) {
+  return await cached(`taigi-words-${page}`, () =>
     fetch(`https://www.taigitv.org.tw/taigi-words?page=${page}`, {
       headers: {
         "User-Agent": "Kisaragi Hiu, Kemdict",
       },
     }),
   );
+}
+
+async function getPageCount() {
+  // get the page count from the pagination widget from the first page
+  const text = await fetchPage(1);
+  const doc = new DOMParser().parseFromString(text, "text/html");
+  const pages = notnull(doc.querySelectorAll(".pagination a.page-link"));
+  let page = 1;
+  for (const pageElem of pages) {
+    const href = pageElem.attributes.getNamedItem("href");
+    if (!href) continue;
+    const url = href.value;
+    const newpage = parseInt(
+      notnull(new URLSearchParams(new URL(url).search).get("page")),
+    );
+    if (newpage > page) page = newpage;
+  }
+  return page;
+}
+
+async function scrapePage(page: number) {
+  const text = await fetchPage(page);
   const doc = new DOMParser().parseFromString(text, "text/html");
   const wordsContainer = notnull(doc.querySelector(".doc-con .s4-btng"));
   for (const word of wordsContainer.children) {
@@ -78,5 +100,8 @@ async function parsePage(page: number) {
   }
 }
 
-await parsePage(3);
-console.log(words);
+// const total = await getPageCount();
+await scrapePage(1);
+// for (let page = 1; page <= total; page++) {
+//   await scrapePage(page);
+// }
