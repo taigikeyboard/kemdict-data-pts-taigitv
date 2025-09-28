@@ -94,7 +94,7 @@ for (let page = 1; page <= total; page++) {
   console.log(`Scraping page ${page}/${total}...`);
   await scrapePage(page);
 }
-console.log(`Done`);
+console.log(`Done, there are ${words.length} words`);
 
 // Date in the form of 20201201T235959Z.
 const now = new Date().toISOString().replace(/:|-|\.[0-9]*/g, "");
