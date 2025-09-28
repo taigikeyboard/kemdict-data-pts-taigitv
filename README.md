@@ -16,6 +16,6 @@
 
 ## 授權條款
 
-Scrape 下來的資料在 `data/`，為公視台語台[以 CC-BY 4.0 授權](https://www.taigitv.org.tw/taigi-words?page=1#:~:text=CC%2DBY%2D4.0-,%E6%8E%88%E6%AC%8A,-%E9%96%8B%E6%94%BE%E4%BA%88%E5%85%AC%E7%9C%BE)的內容。
+Scrape 下來的資料在 `data/`，為公視台語台[以 CC-BY 4.0 授權](https://www.taigitv.org.tw/taigi-words?page=1#:~:text=CC%2DBY%2D4.0-,%E6%8E%88%E6%AC%8A,-%E9%96%8B%E6%94%BE%E4%BA%88%E5%85%AC%E7%9C%BE)的內容。JSON 版仍然為原授權的 CC-BY 4.0。
 
 我的程式碼以 CC0 授權釋出，見 [LICENSE](./LICENSE)。
