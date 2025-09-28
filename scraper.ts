@@ -102,12 +102,11 @@ async function scrapePage(page: number) {
   }
 }
 
-// const total = await getPageCount();
-await scrapePage(1);
-// for (let page = 1; page <= total; page++) {
-//   await scrapePage(page);
-// }
+const total = await getPageCount();
+for (let page = 1; page <= total; page++) {
+  await scrapePage(page);
+}
 
 // Date in the form of 20201201T235959Z.
 const now = new Date().toISOString().replace(/:|-|\.[0-9]*/g, "");
-writeFileSync(`scrape-${now}.json`, JSON.stringify(words, null, 1));
+writeFileSync(`data/scrape-${now}.json`, JSON.stringify(words, null, 1));

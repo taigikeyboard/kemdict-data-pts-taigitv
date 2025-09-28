@@ -1,0 +1,2 @@
+scrape:
+	deno scraper.ts
