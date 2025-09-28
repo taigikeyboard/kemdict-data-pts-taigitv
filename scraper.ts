@@ -1,6 +1,8 @@
 // -*- lsp-disabled-clients: (ts-ls); -*-
-import { DOMParser, Element } from "jsr:@b-fuze/deno-dom";
+import { DOMParser } from "jsr:@b-fuze/deno-dom";
 import { cached } from "npm:@kisaragi-hiu/cached-fetch";
+
+import { writeFileSync } from "node:fs";
 
 interface Tag {
   id: number;
@@ -105,3 +107,7 @@ await scrapePage(1);
 // for (let page = 1; page <= total; page++) {
 //   await scrapePage(page);
 // }
+
+// Date in the form of 20201201T235959Z.
+const now = new Date().toISOString().replace(/:|-|\.[0-9]*/g, "");
+writeFileSync(`scrape-${now}.json`, JSON.stringify(words, null, 1));
