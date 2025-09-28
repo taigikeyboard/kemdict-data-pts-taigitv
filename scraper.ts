@@ -55,6 +55,10 @@ async function parsePage(page: number) {
       pns.push(pnElem.textContent.trim());
     }
 
+    const zh = notnull(
+      inner.querySelector("div.row > div > span"),
+    ).textContent.trim();
+
     const tags: Tag[] = [];
     const tagElems = notnull(inner.querySelectorAll("div.pop-tag a"));
     for (const tagElem of tagElems) {
@@ -68,7 +72,7 @@ async function parsePage(page: number) {
       id: id,
       title: title,
       pn: pns,
-      zh: "todo",
+      zh: zh,
       tags: tags,
     });
   }
