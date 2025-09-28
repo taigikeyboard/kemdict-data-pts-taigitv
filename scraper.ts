@@ -96,6 +96,10 @@ for (let page = 1; page <= total; page++) {
 }
 console.log(`Done, there are ${words.length} words`);
 
+// Sort the words and tags
+words.map((w) => w.tags.sort((a, b) => a.id - b.id));
+words.sort((a, b) => a.id - b.id);
+
 // Date in the form of 20201201T235959Z.
 const now = new Date().toISOString().replace(/:|-|\.[0-9]*/g, "");
 writeFileSync(`data/scrape-${now}.json`, JSON.stringify(words, null, 1));
