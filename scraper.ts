@@ -1,21 +1,8 @@
 // -*- lsp-disabled-clients: (ts-ls); -*-
+import { writeFileSync } from "node:fs";
 import { DOMParser } from "jsr:@b-fuze/deno-dom";
 import { cached } from "npm:@kisaragi-hiu/cached-fetch";
-
-import { writeFileSync } from "node:fs";
-
-interface Tag {
-  id: number;
-  title: string;
-}
-
-interface Word {
-  id: number;
-  title: string;
-  pn: string[];
-  zh: string;
-  tags: Tag[];
-}
+import type { Tag, Word } from "./types.ts";
 
 function notnull<T>(value: T): NonNullable<T> {
   if (!value) throw new Error("not null");
