@@ -8,8 +8,14 @@
 
 萬分感謝公視台語台對台語的貢獻，與慷慨的開放授權。
 
-## Process
+## 流程
 
-The data is scraped from [the webpage](https://www.taigitv.org.tw/taigi-words?page=1) because there doesn't seem to be a release of the whole thing as a dataset.
+資料是從[網頁](https://www.taigitv.org.tw/taigi-words?page=1) scrape 而來的。
 
-For now, the audio is not scraped.
+讀音聲音檔目前沒有 scrape 下來。台羅應該就夠了。
+
+## 授權條款
+
+Scrape 下來的資料在 `data/`，為公視台語台[以 CC-BY 4.0 授權](https://www.taigitv.org.tw/taigi-words?page=1#:~:text=CC%2DBY%2D4.0-,%E6%8E%88%E6%AC%8A,-%E9%96%8B%E6%94%BE%E4%BA%88%E5%85%AC%E7%9C%BE)的內容。
+
+我的程式碼以 CC0 授權釋出，見 [LICENSE](./LICENSE)。
