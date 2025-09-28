@@ -14,6 +14,46 @@
 
 讀音聲音檔目前沒有 scrape 下來。台羅應該就夠了。
 
+## 利用
+
+資料檔在 `./data/scrape-<時間>.json`，其中時間是我執行 scrape 完成的時間。
+
+資料格式是 (用 TypeScript 敘述的話):
+
+```typescript
+// 整個文件是 Word[]
+
+interface Word {
+  id: number;
+  title: string;
+  pn: string[];
+  zh: string;
+  tags: Tag[];
+}
+
+interface Tag {
+  id: number;
+  title: string;
+}
+```
+
+用 Zod 敘述的話：
+
+```typescript
+const tag = z.object({
+  id: z.number(),
+  title: z.string(),
+});
+const word = z.object({
+  id: z.number(),
+  title: z.string(),
+  pn: z.array(z.string()),
+  zh: z.string(),
+  tags: z.array(tags),
+});
+const 文件 = z.array(word);
+```
+
 ## 授權條款
 
 Scrape 下來的資料在 `data/`，為公視台語台[以 CC-BY 4.0 授權](https://www.taigitv.org.tw/taigi-words?page=1#:~:text=CC%2DBY%2D4.0-,%E6%8E%88%E6%AC%8A,-%E9%96%8B%E6%94%BE%E4%BA%88%E5%85%AC%E7%9C%BE)的內容。JSON 版仍然為原授權的 CC-BY 4.0。
